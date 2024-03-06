@@ -14,7 +14,7 @@ object SharedPreferenceUtil {
     fun init(context: Context) {
         preferences = context.getSharedPreferences(NAME, MODE)
     }
-
+//hello
 
     fun getBoardingIsFinished(): Boolean {
         //val sharedPreferences = context.getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
