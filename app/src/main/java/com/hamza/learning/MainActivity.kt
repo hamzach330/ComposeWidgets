@@ -12,6 +12,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.hamza.learning.ui.landingPage.LandingPage
 import com.hamza.learning.ui.theme.ComposeWidgetsTheme
 import com.hamza.learning.utils.SharedPreferenceUtil
 import kotlinx.coroutines.CoroutineScope
