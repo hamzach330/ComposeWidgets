@@ -12,8 +12,12 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -29,19 +33,38 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.delay
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LandingPage() {
 
     val componentsArray = arrayOf("Text View", "Edit Text","Card")
-    Box(
-        modifier = Modifier.fillMaxSize().padding(vertical = 5.dp, horizontal = 8.dp),
-    ) {
-        LazyColumn {
-            items(componentsArray.size){
-                MainListItem(text = componentsArray[it])
+
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                colors = topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    titleContentColor = MaterialTheme.colorScheme.primary,
+                ),
+                title = {
+                    Text("Components")
+                }
+            )
+        },
+    ) { innerPadding ->
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding),
+        ) {
+            LazyColumn {
+                items(componentsArray.size){
+                    MainListItem(text = componentsArray[it])
+                }
             }
         }
     }
+
 }
 
 @Composable
@@ -55,12 +78,16 @@ fun MainListItem(text:String,modifier: Modifier = Modifier)
         elevation = CardDefaults.cardElevation(
             defaultElevation = 6.dp
         ),
-        modifier = Modifier.fillMaxWidth().padding(2.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(2.dp),
     ){
         Text(
             text = text,
             textAlign = TextAlign.Center,
-            modifier = Modifier.fillMaxWidth().padding(5.dp)
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(5.dp)
         )
     }
 }
@@ -69,5 +96,5 @@ fun MainListItem(text:String,modifier: Modifier = Modifier)
 @Preview
 fun landingPagePrev()
 {
-    MainListItem("HEllo")
+    LandingPage()
 }
