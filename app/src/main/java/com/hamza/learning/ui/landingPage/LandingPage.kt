@@ -39,7 +39,11 @@ import kotlinx.coroutines.delay
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LandingPage() {
+
     val navController = rememberNavController()
+
+
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -58,8 +62,10 @@ fun LandingPage() {
                 .fillMaxSize()
                 .padding(innerPadding),
         ) {
+
 //            MainComponentsList()
             ComponentsNavHost(navController = navController)
+
         }
     }
 
