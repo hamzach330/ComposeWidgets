@@ -31,12 +31,17 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.compose.rememberNavController
+import com.hamza.learning.navigation.ComponentsNavHost
 import com.hamza.learning.utils.Data
 import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LandingPage() {
+
+    val navController = rememberNavController()
+
 
 
     Scaffold(
@@ -57,42 +62,15 @@ fun LandingPage() {
                 .fillMaxSize()
                 .padding(innerPadding),
         ) {
-            LazyColumn {
 
-                items(Data.componentsArray.size){
-                    MainListItem(text = Data.componentsArray[it])
+//            MainComponentsList()
+            ComponentsNavHost(navController = navController)
 
-                }
-            }
         }
     }
 
 }
 
-@Composable
-fun MainListItem(text:String,modifier: Modifier = Modifier)
-{
-    Card (
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.secondary,
-        ),
-        shape = RoundedCornerShape(4.dp),
-        elevation = CardDefaults.cardElevation(
-            defaultElevation = 6.dp
-        ),
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(2.dp),
-    ){
-        Text(
-            text = text,
-            textAlign = TextAlign.Center,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(5.dp)
-        )
-    }
-}
 
 @Composable
 @Preview
