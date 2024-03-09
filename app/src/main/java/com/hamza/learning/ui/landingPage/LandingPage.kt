@@ -31,13 +31,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.hamza.learning.utils.Data
 import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LandingPage() {
 
-    val componentsArray = arrayOf("Text View", "Edit Text","Card")
 
     Scaffold(
         topBar = {
@@ -58,8 +58,10 @@ fun LandingPage() {
                 .padding(innerPadding),
         ) {
             LazyColumn {
-                items(componentsArray.size){
-                    MainListItem(text = componentsArray[it])
+
+                items(Data.componentsArray.size){
+                    MainListItem(text = Data.componentsArray[it])
+
                 }
             }
         }
