@@ -39,7 +39,6 @@ import kotlinx.coroutines.delay
 fun LandingPage() {
 
 
-
     Scaffold(
         topBar = {
             TopAppBar(
@@ -59,8 +58,10 @@ fun LandingPage() {
                 .padding(innerPadding),
         ) {
             LazyColumn {
+
                 items(Data.componentsArray.size){
                     MainListItem(text = Data.componentsArray[it])
+
                 }
             }
         }
