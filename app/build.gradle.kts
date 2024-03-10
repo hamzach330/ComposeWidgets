@@ -77,4 +77,6 @@ dependencies {
     implementation(libs.composeAnimation.graphics)
     //Compose Pager
     //implementation(libs.composePager)
+    implementation (libs.androidx.runtime.livedata)
+
 }

@@ -10,6 +10,15 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
+import com.hamza.learning.navigation.NavigationItem
+import com.hamza.learning.utils.Data
+import com.hamza.learning.viewModels.TopBarViewModel
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -44,6 +53,11 @@ fun MainListItem(index: Int, navController: NavController, modifier: Modifier = 
     }
 }
 @Composable
+fun MainComponentsList(navController: NavController, topBarViewModel: TopBarViewModel)
+{
+    LaunchedEffect(Unit) {
+        topBarViewModel.setTitle("Components")
+    }
 fun MainComponentsList(navController: NavController)
 {
     LazyColumn {
