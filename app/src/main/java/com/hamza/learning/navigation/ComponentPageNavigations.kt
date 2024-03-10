@@ -9,6 +9,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.hamza.learning.ui.mianComponents.MainComponentsList
 import com.hamza.learning.ui.subComponents.SubComponentsList
+import com.hamza.learning.viewModels.TopBarViewModel
 
 enum class Screen {
     MainComponents,
@@ -23,6 +24,7 @@ fun ComponentsNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController,
     startDestination: String = NavigationItem.MainComponents.route,
+    topBarModel: TopBarViewModel,
 )
 {
     NavHost(
@@ -32,14 +34,14 @@ fun ComponentsNavHost(
     ) {
         composable(NavigationItem.MainComponents.route)
         {
-            MainComponentsList(navController = navController)
+            MainComponentsList(navController = navController,topBarModel)
         }
         composable(
             NavigationItem.SubComponents.route+"/{mainIndex}",
             arguments = listOf(navArgument("mainIndex") { type = NavType.IntType })
             )
         {
-            SubComponentsList(it.arguments!!.getInt("mainIndex"))
+            SubComponentsList(it.arguments!!.getInt("mainIndex"),topBarModel)
         }
     }
 }
