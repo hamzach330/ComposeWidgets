@@ -20,6 +20,7 @@ fun SubComponentsList(mainIndex: Int, topBarViewModel: TopBarViewModel)
     LaunchedEffect(Unit) {
         topBarViewModel.setTitle(Data.componentsArray[mainIndex])
     }
+
     Column (
         verticalArrangement = Arrangement.Center,
         modifier = Modifier.fillMaxSize()
