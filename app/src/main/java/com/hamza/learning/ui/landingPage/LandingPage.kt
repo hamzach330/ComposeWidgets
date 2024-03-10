@@ -18,12 +18,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.rememberNavController
 import com.hamza.learning.navigation.ComponentsNavHost
 import com.hamza.learning.viewModels.TopBarViewModel
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.navigation.compose.rememberNavController
-import com.hamza.learning.navigation.ComponentsNavHost
-import com.hamza.learning.utils.Data
-import kotlinx.coroutines.delay
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
